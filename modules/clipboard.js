@@ -321,9 +321,9 @@ function traverse(scroll, node, elementMatchers, textMatchers, nodeMatches) {
             return matcher(childNode, reducedDelta, scroll);
           },
           childrenDelta,
-        );
+        ) || childrenDelta;
       }
-      return delta.concat(childrenDelta);
+      return delta.concat(childrenDelta || { ops: []});
     }, new Delta());
   }
   return new Delta();
